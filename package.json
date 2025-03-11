@@ -1,0 +1,42 @@
+{
+  "name": "ha-spline",
+  "version": "0.0.1",
+  "description": "Home Assistant Spline",
+  "main": "index.js",
+  "scripts": {
+    "start": "rollup -c --watch --bundleConfigAsCjs",
+    "build": "rollup -c --bundleConfigAsCjs",
+    "format": "prettier --write .",
+    "start:hass-stable": "docker run --rm -p8123:8123 -v ./.hass_dev:/config homeassistant/home-assistant:stable",
+    "start:hass": "docker run --rm -p8123:8123 -v ./.hass_dev:/config homeassistant/home-assistant:beta",
+    "start:hass-dev": "docker run --rm -p8123:8123 -v ./.hass_dev:/config homeassistant/home-assistant:dev"
+  },
+  "author": "Paul Bottein",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/piitaya/ha-spline"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "@splinetool/runtime": "^1.9.75",
+    "@splinetool/viewer": "^1.9.75",
+    "home-assistant-js-websocket": "^9.4.0",
+    "lit": "^3.2.1",
+    "memoize-one": "^6.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.26.9",
+    "@babel/preset-env": "^7.26.9",
+    "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-commonjs": "^28.0.2",
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-node-resolve": "^16.0.0",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@rollup/plugin-typescript": "^12.1.2",
+    "eslint": "^9.21.0",
+    "prettier": "^3.5.2",
+    "rollup": "^4.34.8",
+    "rollup-plugin-serve": "^1.1.1",
+    "typescript": "^5.7.3"
+  }
+}
