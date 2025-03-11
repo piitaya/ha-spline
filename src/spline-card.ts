@@ -50,11 +50,15 @@ export class SplineCard extends LitElement {
   _unloadScene() {
     if (this._app) {
       this._app.dispose();
+      this._app = undefined;
       this._loadedURL = undefined;
     }
   }
 
   async _loadScene() {
+    if (!this.isConnected) {
+      return;
+    }
     if (!this._canvas) {
       return;
     }
